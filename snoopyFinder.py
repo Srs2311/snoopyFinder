@@ -1,7 +1,11 @@
 import bs4
 import requests
 import time
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+HAWEBHOOK = os.getenv('WEBHOOK')
 
 
 
@@ -17,7 +21,7 @@ def snoopyCheck():
     if (len(stockHTML) != 0):
         print("out of stock")
     else:
-        requests.post('http://10.0.0.37:8123/api/webhook/snoopy-sOb1XGjNfQj1Izp2e8IA9rPv')
+        requests.post(HAWEBHOOK)
 
 #main loop
 while(True):
